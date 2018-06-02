@@ -1,6 +1,8 @@
 var board1;
 var board2;
 var Theball;
+var ballpos,
+  ballV;
 
 function setup() {
   createCanvas( 1600, 1000 );
@@ -8,10 +10,7 @@ function setup() {
   var pos2 = createVector( 1550, 400 );
   board1 = new board( pos1, 23, 120 );
   board2 = new board( pos2, 23, 120 );
-  var ballpos = createVector( width / 2, height / 2 );
-  var ballV = createVector( random( -1, 1 ), random( -0.45, 0.45 ) );
-  ballV.setMag( 10 );
-  Theball = new ball( ballpos, 18, ballV );
+  newBall();
 
 }
 
@@ -71,17 +70,19 @@ function Score() {
 
   if ( Theball.pos.x < 0 ) {
     board2.score += 1;
-    var ballpos = createVector( width / 2, height / 2 );
-    var ballV = createVector( random( -1, 1 ), random( -0.45, 0.45 ) );
-    ballV.setMag( 10 );
-    Theball = new ball( ballpos, 18, ballV );
+    newBall();
 
   } else if ( Theball.pos.x > width ) {
     board1.score += 1;
-    var ballpos = createVector( width / 2, height / 2 );
-    var ballV = createVector( random( -1, 1 ), random( -0.45, 0.45 ) );
-    ballV.setMag( 10 );
-    Theball = new ball( ballpos, 18, ballV );
+    newBall();
   }
+
+}
+
+function newBall() {
+  ballpos = createVector( width / 2, height / 2 );
+  ballV = createVector( 2 * floor( random( 0.1, 1.9 ) ) - 1, random( -0.45, 0.45 ) );
+  ballV.setMag( 10 );
+  Theball = new ball( ballpos, 18, ballV );
 
 }
