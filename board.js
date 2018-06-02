@@ -6,6 +6,7 @@ class board {
     this.height = height;
     this.stop = true;
     this.v = 6;
+    this.score = 0;
   }
 
   update() {
