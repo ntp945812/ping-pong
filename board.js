@@ -5,7 +5,7 @@ class board {
     this.width = width;
     this.height = height;
     this.stop = true;
-    this.v = 6;
+    this.v = 7;
     this.score = 0;
   }
 

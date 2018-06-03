@@ -22,8 +22,9 @@ function draw() {
   board2.update();
   board2.show();
   Theball.update();
-  Theball.bounce( board1, board2 );
   Theball.show();
+  Theball.bounce( board1, board2 );
+  Theball.update();
 
 }
 
@@ -81,8 +82,8 @@ function Score() {
 
 function newBall() {
   ballpos = createVector( width / 2, height / 2 );
-  ballV = createVector( 2 * floor( random( 0.1, 1.9 ) ) - 1, random( -0.45, 0.45 ) );
-  ballV.setMag( 10 );
+  ballV = createVector( 2 * floor( random( 0.1, 1.9 ) ) - 1, random( -1, 1 ) );
+  ballV.setMag( 5 );
   Theball = new ball( ballpos, 18, ballV );
 
 }
